@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import * as React from 'react';
 import './App.css';
 
 var stud = [{name: "Ajay", roll: 1, mark1: 90, mark2: 59, mark3: 82, total:0,},
@@ -17,10 +18,31 @@ const Test = () =>{
 }
 
 function App() {
+  const [count, setCount] = React.useState(0);
+
+  const Increase = () => {
+    setCount(count+1)
+  }
+
+  const Decrease = () => {
+    setCount(count-1)
+  }
+
   return (
     <div className="App">
       <h1>Hello World</h1>
       <Test />
+      <div>
+        Count: {count}
+        <div>
+          <button type="button" onClick={Increase}>
+            Increase
+          </button>
+          <button type="button" onClick={Decrease}>
+            Decrease
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
